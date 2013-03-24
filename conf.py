@@ -250,6 +250,8 @@ STORY_INDEX = True
 # Enable comments on picture gallery pages?
 # COMMENTS_IN_GALLERIES = False
 
+STRIP_INDEX_HTML = True
+
 # Do you want a add a Mathjax config file?
 # MATHJAX_CONFIG = ""
 
