@@ -131,8 +131,8 @@ TAG_PAGES_ARE_INDEXES = False
 # output / TRANSLATION[lang] / ARCHIVE_PATH / ARCHIVE_FILENAME
 # output / TRANSLATION[lang] / ARCHIVE_PATH / YEAR / index.html
 # ARCHIVE_PATH = ""
-ARCHIVE_PATH="archive/"
-ARCHIVE_FILENAME="index.html"
+ARCHIVE_PATH = "archive/"
+ARCHIVE_FILENAME = "index.html"
 # ARCHIVE_FILENAME = "archive.html"
 # Final locations are:
 # output / TRANSLATION[lang] / RSS_PATH / rss.xml
@@ -295,6 +295,7 @@ ADD_THIS_BUTTONS = False
 # Modify the number of Post per Index Page
 # Defaults to 10
 # INDEX_DISPLAY_POST_COUNT = 10
+INDEX_DISPLAY_POST_COUNT = 2
 
 # RSS_LINK is a HTML fragment to link the RSS or Atom feeds. If set to None,
 # the base.tmpl will use the feed Nikola generates. However, you may want to
