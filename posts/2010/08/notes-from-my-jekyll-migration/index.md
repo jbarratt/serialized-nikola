@@ -20,7 +20,7 @@ $  sudo apt-get install ruby-dev  libyaml-ruby libzlib-ruby python-pygments libg
 
 ### Local install of Gems
 
-I didn't want to mess with my system gems, and wanted to have the gems installed in my local directory like I'm used to with Perl's [local::lib](search.cpan.org/perldoc?local::lib). 
+I didn't want to mess with my system gems, and wanted to have the gems installed in my local directory like I'm used to with Perl's [local::lib](http://search.cpan.org/perldoc?local::lib). 
 This turned out to be harder than you may think. Here's the environment incantation that did the trick:
 
 ``` bash

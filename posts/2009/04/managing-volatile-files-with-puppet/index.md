@@ -7,7 +7,7 @@
 .. description:
 -->
 
-I'm managing [Linux HA](linux-ha.org) (heartbeat2) from [Puppet](http://reductivelabs.com) and I had a problem.
+I'm managing [Linux HA](http://linux-ha.org) (heartbeat2) from [Puppet](http://reductivelabs.com) and I had a problem.
 There is a file called `cib.xml` used by heartbeat which I needed to manage. For a variety of boring reasons, when you make changes to this file, you must have a number in it which is the highest the
 app has ever seen.
 

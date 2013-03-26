@@ -9,9 +9,7 @@
 
 As most of you who actually read this site know, I've been <del>driving</del> riding to work on a scooter.
 
-![img](/images/IMG_0143_2.jpg)
-
-I just added the shiny topcase, which is cool -- I can store my helmet in there and it carries my laptop bag on the way to work so I don't have to backpack-style it.
+I just added a shiny topcase, which is cool -- I can store my helmet in there and it carries my laptop bag on the way to work so I don't have to backpack-style it.
 
 Like anything, there are some pros and cons:
 

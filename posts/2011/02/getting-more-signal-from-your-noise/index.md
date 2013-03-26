@@ -78,7 +78,7 @@ This is a by-no-means-comprehensive list of the people whose tweets, software, a
 * [Jordan Sissel](http://www.semicomplete.com/) (author of [Logstash](http://code.google.com/p/logstash/), [Grok](ihttp://code.google.com/p/semicomplete/wiki/Grok) and [Fex](http://semicomplete.com/projects/fex/))
 * Strata (The ORA Data Conference) Speakers: [Lanyrd List](http://lanyrd.com/2011/strata/speakers/) (and Lanyrd's awesome [Writeup List](http://lanyrd.com/2011/strata/writeups/)).
 * [Dr. Neil Gunther](http://www.perfdynamics.com/Bio/njg.html)
-* [Patrick Debois](http:/twitter.com/patrickdebois)
+* [Patrick Debois](http://twitter.com/patrickdebois)
 * [Regis Giadot](http://regis.gaidot.net/)
 * [Theo Schlossnagle](http://lethargy.org/~jesus/about.html)
 * [Percona](http://www.percona.com/) (Including the very nice implementation of Dr. Gunther's [Universal Scalability Law](http://aspersa.googlecode.com/svn/html/usl.html))
