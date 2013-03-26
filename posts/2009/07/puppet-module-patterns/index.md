@@ -7,6 +7,10 @@
 .. description:
 -->
 
+*Update:* This is way out of date. For anything current please see something like R.I. Pienaar's seminal [Simple Puppet Module Structure Redux](http://www.devco.net/archives/2012/12/13/simple-puppet-module-structure-redux.php).
+
+---
+
 I've been playing a lot with Puppet recently, and have been really focusing on getting a core set of modules in place. I found myself using a few module patterns over and over, so I thought I'd write them down and keep an updated list.
 
 ## `/base` and `/site`

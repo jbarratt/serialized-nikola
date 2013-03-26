@@ -37,9 +37,9 @@ function calc_catchup(form) {
 </script>
 
 <form method='post' name='catchup_count' action='calc_catchup'>
-Number you last actually did: <input type='text' name='last' size='3' value='11' onchange="calc_catchup(this.form)"/>
-
-Number you should do today: <input type='text' name='today' size='3' onchange="calc_catchup(this.form)" value='18'/>
-
-Number you need to do to today to be caught up: <input type='text' name='catchup' size='4' value='105' onchange="calc_catchup(this.form)"/>
+<table>
+<tr><td>Number you last actually did</td><td><input type='text' name='last' size='3' value='11' onchange="calc_catchup(this.form)"/></td></tr>
+<tr><td>Number you should do today</td><td><input type='text' name='today' size='3' onchange="calc_catchup(this.form)" value='18'/></td></tr>
+<tr><td>Number you need to do to today to be caught up</td><td><input type='text' name='catchup' size='4' value='105' onchange="calc_catchup(this.form)"/></td></tr>
+</table>
 </form>

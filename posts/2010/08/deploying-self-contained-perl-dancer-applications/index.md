@@ -7,6 +7,9 @@
 .. description:
 -->
 
+*Update*: (_03/2013_) I'm not doing much Perl at the moment, but if I was, I'd probably be checking out [Carton](https://github.com/miyagawa/carton) instead.
+
+----
 
 I'm really enjoying using Perl's [Dancer](http://perldancer.org) for building lightweight web applications. It's heavily inspired by Ruby's [Sinatra](http://sinatrarb.com) framework, but clearly Perlish.
 

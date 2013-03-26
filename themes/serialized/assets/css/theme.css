@@ -20,6 +20,10 @@ p > img {
     margin: 20px;
 }
 
+pre {
+    font-size: 10px;
+}
+
 body {
     padding-top: 0px;
 }

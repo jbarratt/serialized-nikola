@@ -16,6 +16,3 @@ I ended up sending him to my [last.fm profile](http://www.last.fm/user/jbarratt/
 So, I decided to rate more music. The problem is, I listen to music in the background and don't want to bother myself pulling up itunes, finding the track playing now, deciding how many stars to give something, clicking that slot, and going back to what I was doing. Not going to happen. In fact, searching a bit for this problem, I found that [this blog article](http://www.lowest-common-denominator.com/2007/10/itunes_quicksilver_if_you_like.php) perfectly captured both my annoyance at the star system AND provided the perfect solution. 
 
 So now if I like a track, I just pull up quicksilver with some magic that only my fingers remember (cmd-space iirc) and type what's already turned into just 'in...' and boom, I bump the stars up by one.
-
-<p>Here it is, in action:
-![img](/images/Results.jpg)</p>
