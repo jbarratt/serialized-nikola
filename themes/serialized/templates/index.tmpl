@@ -5,15 +5,19 @@
 <%block name="content">
     % for post in posts:
         <div class="postbox">
-        <h1><a href="${post.permalink()}">${post.title()}</a>
-        <small>&nbsp;&nbsp;
-             <time class="published" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
-        </small></h1>
-        <hr>
-        ${post.text(teaser_only=index_teasers)}
-        % if not post.meta('nocomments'):
-            ${disqus.html_disqus_link(post.permalink()+"#disqus_thread", post.base_path)}
-        % endif
+            <div class="row-fluid">
+                <div class="span8">
+                    <h1><a href="${post.permalink()}">${post.title()}</a>
+                </div>
+                <div class="span3 pull-right muted">
+                    <time class="published" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
+                </div>
+            </div>
+            <hr>
+            ${post.text(teaser_only=index_teasers)}
+            % if not post.meta('nocomments'):
+                ${disqus.html_disqus_link(post.permalink()+"#disqus_thread", post.base_path)}
+            % endif
         </div>
     % endfor
     ${helper.html_pager()}

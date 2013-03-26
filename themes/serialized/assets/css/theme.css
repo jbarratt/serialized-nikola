@@ -19,16 +19,8 @@ body {
     padding-top: 0px;
 }
 
-.postbox > h1 {
-    display: inline;
-    padding-right: 30px;
-    font-size: 2.2em;
-}
-
-h1 > small {
-    font-size: 70%;
-    float: right;
-    padding-top: 15px;
+.postbox  h1 {
+    font-size: 1.9em;
 }
 
 .navbar {
