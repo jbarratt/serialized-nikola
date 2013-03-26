@@ -4,10 +4,7 @@
 
 h1 {
     font-family: "Oswald", sans-serif;
-}
-
-h1 > a {
-    font-size: 80%;
+    text-shadow: 1px 1px 1px #ccc;
 }
 
 h2 {
@@ -25,6 +22,7 @@ body {
 .postbox > h1 {
     display: inline;
     padding-right: 30px;
+    font-size: 2.2em;
 }
 
 h1 > small {
