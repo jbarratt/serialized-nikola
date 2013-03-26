@@ -157,7 +157,7 @@ ARCHIVE_FILENAME = "index.html"
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
 DEPLOY_COMMANDS = [
-    r'rsync -rav --delete output/* serialized.net@serialized.net:domains/serialized.net/html'
+    r'rsync -rav --delete output/ serialized.net@serialized.net:domains/nikola.serialized.net/html/'
 ]
 
 # Where the output site should be located

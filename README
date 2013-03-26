@@ -1,0 +1,6 @@
+This is the source code that generates my personal site (http://serialized.net)
+
+$ pip install nikola
+$ nikola build
+$ nikola serve
+$ nikola deploy
