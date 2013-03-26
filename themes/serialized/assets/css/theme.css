@@ -29,6 +29,8 @@ body {
 
 h1 > small {
     font-size: 70%;
+    float: right;
+    padding-top: 15px;
 }
 
 .navbar {
