@@ -156,7 +156,9 @@ ARCHIVE_FILENAME = "index.html"
 # "rsync -rav output/* joe@my.site:/srv/www/site"
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
-# DEPLOY_COMMANDS = []
+DEPLOY_COMMANDS = [
+    r'rsync -rav --delete output/* serialized.net@serialized.net:domains/serialized.net/html'
+]
 
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
@@ -339,8 +341,23 @@ RSS_TEASERS = False
 
 # Google analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
-# TODO
 # ANALYTICS = ""
+ANALYTICS = """
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15368739-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+"""
+
 
 # The possibility to extract metadata from the filename by using a
 # regular expression.
