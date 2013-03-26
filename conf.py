@@ -20,8 +20,9 @@ SITE_URL = "http://serialized.net"
 BLOG_EMAIL = "jbarratt@serialized.net"
 BLOG_DESCRIPTION = "Joshua Barratt's Writings on Technology, Food, and other fascinations."
 
+#<link rel="stylesheet" href="../css/font-awesome.min.css">
+
 EXTRA_HEAD_DATA = """
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic|Oswald:400,700' rel='stylesheet' type='text/css'>
 """
 
