@@ -69,13 +69,13 @@ The way I started out solving these sorts of problems turns out to not scale all
 As I started a module (to solve a specific problem) I would just start listing out the puppet resources it would need.
 
 **`mywebapp/manifests/init.pp`**
-{% codeblock lang:text %}
+```
 package { "lighttpd": ensure => installed }
 service { "lighttpd": ensure => running, enabled => true }
 package { "lib-catalyst-rest-perl": ensure => installed } 
 package { "apache2": ensure => installed }
 service { "apache2": ....
-{% endcodeblock %}
+```
 
 and so on.
 
@@ -87,11 +87,11 @@ First, puppet only lets us define a resource once. So if we decide we want a new
 we'd have a problem.
 
 **`statshud/manifests/init.pp`**
-{% codeblock lang:text %}
+```
 ...
 package { "apache2": ensure => installed }
 ...
-{% endcodeblock %}
+```
 
 Puppet will freak.
 
@@ -107,10 +107,10 @@ As a practical example, I refer you to the our lighttpd config.
 
 It has an SSL config file, in which we find this little gem:
 
-{% codeblock lang:text %}
+```
 ssl.cipher-list = "DHE-RSA-AES256-SHA DHE-RSA-AES128-SHA EDH-RSA-DES-CBC3-SHA 
     AES256-SHA AES128-SHA DES-CBC3-SHA DES-CBC3-MD5 RC4-SHA RC4-MD5"
-{% endcodeblock %}
+```
 
 Neat! This implements the current best practices for what ciphers we should accept.
 
@@ -143,7 +143,7 @@ Because of the above threats and virtues, we want to push as much functionality 
 So how this looks in practice in puppet-speak:
 
 **`mywebapp/manifests/init.pp`**
-{% codeblock lang:text %}
+```
 
 // configure lighttpd module
 include lighttpd
@@ -159,7 +159,7 @@ cron {
     command => "...."
 }
 
-{% endcodeblock %}
+```
 
 
 ### Configuring other Classes
@@ -180,15 +180,15 @@ I'll keep this one simple:
 
 A lot of the time there are several distinct modes you might want to use an app in. For example, there's a big difference between
 
-{% codeblock lang:text %}
+```
 include mysql
-{% endcodeblock %}
+```
 
 and 
 
-{% codeblock lang:text %}
+```
 include mysql::server
-{% endcodeblock %}
+```
 
 #### Technique #2: Create 'defines' that we use from inside classes
 
@@ -201,7 +201,7 @@ This technique is the most commonly used one. Many of the application and daemon
 
 These are best handled with defines. A good full-strength version of this is in our monit config:
 
-{% codeblock lang:text %}
+```
 define conf ( $source = '', $content = '' ) {
     if $source != '' {
         file { "/etc/monit.d/$name":
@@ -221,32 +221,32 @@ define conf ( $source = '', $content = '' ) {
         }
     }
 }
-{% endcodeblock %}
+```
 
 Notable features:
-{% codeblock lang:text %} 
+```
     define conf ( $source = '', $content = '' ) 
-{% endcodeblock %}
+```
 
 This is useful because we can define a config file via either source or content.
 
 I can call this from another module like:
 
-{% codeblock lang:text %}
+```
     include monit::common
     monit::common::conf { "lighttpd-monit": source => "puppet:///lighttpd/lighthttpd-monitrc" }
-{% endcodeblock %}
+```
 
 or, if I wanted to template it:
 
-{% codeblock lang:text %}
+```
     include monit::common
     monit::common::conf { "apache2": content => template("apache2/apache2-monitrc.erb") }
-{% endcodeblock %}
+```
 
 There's no reason for us not to actually help people out and write common configs for them. This is easy with extra defines.
 
-{% codeblock lang:text %}
+```
     define simple_service ($pidname = $name) {
         file { "/etc/monit.d/$name":
             notify => Service["monit"],
@@ -256,19 +256,19 @@ There's no reason for us not to actually help people out and write common config
             group => root,
         }
     }
-{% endcodeblock %}
+```
 
-{% codeblock lang:text %}
+```
     include monit::common
     monit::common::simple_service { "apache2": pidname => "apache2" }
-{% endcodeblock %}
+```
 
 #### Technique #3: Set variables before you include the class
 
 A good example might be for the mywebapp, I only want apache2 to be listening to the `lo` loopback interface. This would be a dumb default behavior if someone just did
-{% codeblock lang:text %}
+```
     include apache2
-{% endcodeblock %}
+```
 
 I would probably want it listening on all the public interfaces, by default.
 
@@ -277,18 +277,18 @@ So I can specify configuration variables:
 In 
 
 **`site/mywebapp/manifests/init.pp`**
-{% codeblock lang:text %}
+```
 
     // we only want to have apache2 listening on the loopback
     $apache2_interface = "lo"
 
     include apache2
-{% endcodeblock %}
+```
 
 Then, in 
 
 **`base/apache2/manifests/init.pp`**
-{% codeblock lang:text %}
+```
     // if someone set this variable before they included our class, use it
     if($apache2_interface) {
         $interface = $apache2_interface
@@ -296,7 +296,7 @@ Then, in
         // by default use '*' which means listen on all interfaces
         $interface = "*"
     }
-{% endcodeblock %}
+```
 
 
 I like the idea of a consistent prefixing of configuration variables -- for example, all config variables for module 'foo' would be '$foo_....'
@@ -309,14 +309,14 @@ We get this pretty much for free, actually. If you specify in your documentation
 > You must specify a value for `$syslog_server` before including this module
 
 **`base/syslog-client/manifests/init.pp`**
-{% codeblock lang:text %}
+```
     file { "/etc/syslog.conf":
         content => template(syslog-client/syslog.conf.erb),
     }
-{% endcodeblock %}
+```
 
 **`base/syslog-client/templates/syslog.conf.erb`**
-{% codeblock lang:text %}
+```
 #
 # Remote Logging
 #
@@ -324,12 +324,12 @@ We get this pretty much for free, actually. If you specify in your documentation
 destination d_remote {
         tcp("<%= syslog_server %>", port(514));
 };
-{% endcodeblock %}
+```
 
 So if someone tries to 
-{% codeblock lang:text %}
+```
 include syslog-client
-{% endcodeblock %}
+```
 without defining that variable, puppet will error for you.
 
 <p style="color: red">

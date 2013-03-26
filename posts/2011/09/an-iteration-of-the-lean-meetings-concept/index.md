@@ -17,12 +17,10 @@ but I'll re-share one of the biggest insights: the point of a meeting is
 to _have a conversation._ Pre-set agendas feel like best practice, but
 they can get in the way of that 'true goal' more often than not.
 
-{% blockquote %}
-Control, agendas, and procedures impeded conversation, focusing on the
-structure of the meeting rather than the topics at hand. If you want
-people to engage in and feel they’ve derived value from your meeting,
-make them feel respected, not restricted.
-{% endblockquote %}
+> Control, agendas, and procedures impeded conversation, focusing on the
+> structure of the meeting rather than the topics at hand. If you want
+> people to engage in and feel they’ve derived value from your meeting,
+> make them feel respected, not restricted.
 
 After having orchestrated a few meetings using this idea, some helpful
 practices have emerged, which seemed worth sharing.
@@ -43,8 +41,7 @@ The riffs on that list are:
 We found that converting (To Do, Doing, Done) to (To Do, _Goals_, Doing,
 _Takeaways_, Done) has been helpful.
 
-{% img /images/LeanMeetingKanban.png Lean Meeting Kanban %}
-
+<img src='/images/LeanMeetingKanban.png' title='Lean Meeting Kanban' alt='Lean Meeting Kanban'/>
 Here is what those new substeps entail: 
 
 ### Goals

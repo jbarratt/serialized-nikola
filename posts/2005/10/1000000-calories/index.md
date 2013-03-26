@@ -13,17 +13,17 @@ So the other day a friend of mine tossed an interesting statistic at me.
 
 This sounded absurd to me at first hearing. Back of the envelope math shows that even if you say the average family size is 5, and that all of those members ate 3000 calories a day (they _did_ say American homes), that having a 1,000,000 calorie stockpile would mean:
 
-{% codeblock lang:text %}
+```
 1,000,000/(3,000*5) = 66 days worth of food!
-{% endcodeblock %}
+```
 
 But then I started enumerating the items in my home, and realized it might well be possible. That 50 lb bag of rice in the garage? ~50,000 calories. And there's food in the pantry, in any soda we might have, the fridge, the freezer.... lots of calories around. Ok. So it might add up.
 
 Just for fun I picked a fairly densely caloric food (white sugar) and calculated how many calories my pantry would contain if filled entirely with it.
 
-{% codeblock lang:text %}
+```
 (Sugar 770 cal/cup) * (119.688 cups/cubic foot) * (5' wide * 5' deep * 6' tall pantry) = ~ 13,000,000 calories.
-{% endcodeblock %}
+```
 
 **13 Million.**
 

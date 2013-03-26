@@ -56,9 +56,9 @@ So here's why that's worth putting up with.
 
 What's can go wrong with code that looks like this? (Arbitrary link I happened to have in my `.bash_history`)
 
-{% codeblock lang:console %}
+``` console
 $ wget http://yuilibrary.com/downloads/yuicompressor/yuicompressor-2.4.2.zip
-{% endcodeblock %}
+```
 
 1. What happens when the version changes? You have to update your configuration. This can be a good or bad thing, but in some cases you really want `$latest` to be installed, rather than the hard-coded version someone supplied the last time they edited the configuration manifest.
 2. What happens when the yuilibrary folks change their (arbitrary) download URI's?
@@ -98,12 +98,12 @@ This is useful for 2 cases:
 
 The server keeps throwing 500 errors. Why? Ah, an untrapped exception in `/some/file/deep/on/the/system`. Ok, I can fix that. Where do I need to go fix that? `dpkg -S <filename>` tells me the exact package responsible for that file.
 
-{% codeblock lang:console %}
+``` console
 $ dpkg -S /usr/bin/factor
     coreutils: /usr/bin/factor
 $ dpkg -S /usr/bin/facter
     facter: /usr/bin/facter
-{% endcodeblock %}
+```
 
 That's one area in particular where configuration management systems can add an extra layer of value. R.I. actually wrote a tool that helps you discover which puppet module is responsible for configuring a given resource on the server. ([localconfig.yaml parser](http://www.devco.net/code/parselocalconfig.rb)) So if the answer is, rather than "it's something shipped with a package", "it's a config file that puppet wrote with your module called `my_module`", you can easily find and fix it.
 

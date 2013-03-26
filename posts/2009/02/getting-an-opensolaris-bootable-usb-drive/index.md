@@ -17,14 +17,14 @@ For this I figured I could use Virtualbox, which I upgraded before starting.
 
 I'm not sure if I needed to upgrade 2008.05 to 2008.11, but I figured I'd do it while I was at it. I found good instructions on the [OpenSolaris site](http://www.opensolaris.org/os/project/indiana/resources/relnotes/200805/image-update/): Basically,
 
-{% codeblock lang:console %}
+``` console
 $ BUILD=`uname -v | sed -e "s/snv_//" -e "s/[a-z]//"`
 $ pfexec pkg refresh
 $ pfexec pkg install entire@0.5.11-0.${BUILD}
 $ pfexec pkg install SUNWipkg@0.5.11-0.${BUILD}
 $ pfexec pkg install SUNWinstall-libs 
 $ pfexec pkg image-update
-{% endcodeblock %}
+```
 
 This took a LONG TIME in VirtualBox (running on a pretty new MacBook Pro even) and my whole machine wasn't all that usable during the process, but hey.
 

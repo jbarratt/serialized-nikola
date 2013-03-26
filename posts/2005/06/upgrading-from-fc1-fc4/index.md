@@ -19,8 +19,8 @@ Next, evolution came up showing no internal icons whatsoever. (all the spaces wh
 The fix, after some judicious strace'ing, was that for some reason there were no 'stock' links in the gnome icons tree. I just populated them with the 'hicolor' stock links and Evolution is happy happy.
 
 
-{% codeblock lang:console %}
+``` console
 $ cd /usr/share/icons/gnome ; for i in *[0-9]x* ; do pushd $i ; ln -s /usr/share/icons/hicolor/$i/stock/ ; popd ; done
-{% endcodeblock %}
+```
 
 This is all still in progress -- the #1 priority was getting the latop to where I could use it, as it's my only work machine at the moment.

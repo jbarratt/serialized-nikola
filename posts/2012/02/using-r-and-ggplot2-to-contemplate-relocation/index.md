@@ -106,8 +106,7 @@ where they fall. This is good use for `qplot`:
 qplot(Max.TemperatureF, color=city, data = weather, geom="density")
 ```
 
-{% img /images/r_relocation/overall_temp_ranges.png 572 354 %} 
-
+<img src='/images/r_relocation/overall_temp_ranges.png' width='572' height='354'/>
 The curves are similar, obviously offset from each
 other by about 20 degrees F; but the Portland curve has a sharper back
 slope -- meaning that temperatures do fall in the 30-50 range, but more
@@ -128,8 +127,7 @@ weather$weeknum <- sapply(1 + as.POSIXlt(weather$PST)$yday %/% 7, function(x) { 
 So, I really fell in love (all over again) with `ggplot2` while making this graph.
 Check it out:
 
-{% img /images/r_relocation/temps_over_year.png 572 354 %} 
-
+<img src='/images/r_relocation/temps_over_year.png' width='572' height='354'/>
 And the code: 
 
 ```r
@@ -182,8 +180,7 @@ data:
 qplot(weeknum, CloudCover, data = weather, geom="smooth", color=city, span=1)
 ```
 
-{% img /images/r_relocation/cloud_cover_by_week.png 572 354 %}
-
+<img src='/images/r_relocation/cloud_cover_by_week.png' width='572' height='354'/>
 So, the cities have similar curves, also offset (by about 3, or 37%
 cloud cover). In the middle of the summer, Van Nuys typically has around
 18% cover, and Portland 43%. So: Portland is Cloudy. **Myth Confirmed.**
@@ -191,8 +188,7 @@ cloud cover). In the middle of the summer, Van Nuys typically has around
 Breaking out `ggplot2`, we can get a much clearer picture of how cloudy
 it is:
 
-{% img /images/r_relocation/cloud_cover_improved.png 572 354 %} 
-
+<img src='/images/r_relocation/cloud_cover_improved.png' width='572' height='354'/>
 ```r
 ggplot(weather, aes(x=weeknum, CloudCover, colour=CloudCover)) 
   + facet_grid(city~.) 
@@ -244,8 +240,7 @@ column for `month` to the data frame as well.
 weather$month <- factor(format(weather$PST, "%B"), order=TRUE, levels=c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"))
 ```
 
-{% img /images/r_relocation/ideal_by_month.png 572 354 %} 
-
+<img src='/images/r_relocation/ideal_by_month.png' width='572' height='354'/>
 A much simpler incarnation of `ggplot` this time:
 ```r
 ggplot(weather, aes(x=month, fill=ideal)) 
@@ -269,8 +264,7 @@ So just to quickly summarize the data:
 ideal_days <- weather[weather$ideal==TRUE,]
 qplot(city, data=ideal_days)
 ```
-{% img /images/r_relocation/ideal_summary.png 572 354 %} 
-
+<img src='/images/r_relocation/ideal_summary.png' width='572' height='354'/>
 Portland has about 42% of the "ideal days" that Van Nuys does. Which, given everything else that [Portland's got going for it](http://www.youtube.com/watch?v=AVmq9dq6Nsg) is actually still a pretty good result.
 
 That gives me an idea... I bet I can point R at some Crime, Traffic, School, and Cost of Living statistics to get a more well-rounded picture :)

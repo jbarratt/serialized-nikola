@@ -45,9 +45,7 @@ I love the book [Gamestorming](http://goo.gl/GMR8e). It's full of frameworks and
 The review we did was based on the Gamestorming game [Challenge Cards](http://www.gogamestorm.com/?p=572).
 In brief, you form two teams: one team creates challenges to the design, the other creates solutions.
 
-{% blockquote %}
-The challenge team picks a card from the deck and plays it on the table, describing a scene or event where the issue might realistically arise. The solution team must then pick a card from their deck that addresses the challenge. If they have a solution they get a point, and if they don’t have a solution the challenge team gets a point. The teams then work together to design a card that addresses that challenge.
-{% endblockquote %}
+> The challenge team picks a card from the deck and plays it on the table, describing a scene or event where the issue might realistically arise. The solution team must then pick a card from their deck that addresses the challenge. If they have a solution they get a point, and if they don’t have a solution the challenge team gets a point. The teams then work together to design a card that addresses that challenge.
 
 For fun, and to emphasize the game aspect (and dampen issues with taking criticism personally), I brought in a silly element of making the "solution team" be Knights, defending a castle -- and the "challenge team" be gnarly Ogres. 
 
@@ -55,8 +53,7 @@ The art and concepts were introduced in some pre-made cards for playing the game
 
 ## Gameplay
 
-{% img right /images/KnightRoundtableSmall.jpg 240 180 The Knights prepare their defense %}
-
+<img src='/images/KnightRoundtableSmall.jpg' align='right' width='240' height='180' title='The Knights prepare their defense' alt='The Knights prepare their defense'/>
 The basic flow of the event (which took about 90 minutes total, each step being timeboxed) was:
 
 1. Get together, and do a brief review of the current design (focusing on recent changes, and in-progress work.) People get handouts of the architecture to review through the game.
@@ -66,8 +63,7 @@ The basic flow of the event (which took about 90 minutes total, each step being 
 5. Meet back up, and play through the decks as described above.
 6. Reconvene as a larger group and debrief.
 
-{% img right /images/InCombatSmall.jpg 240 180 %}
-
+<img src='/images/InCombatSmall.jpg' align='right' width='240' height='180'/>
 ## Heuristic Ideation?
 
 This is a clunky name for a [simple and cool idea](http://www.gogamestorm.com/?p=470). 
@@ -82,8 +78,7 @@ They also cover *logical* things, like Authentication System, Filesystem, User I
 
 I knew we'd end up with large enough lists that the grid layout called for in Heuristic Ideation wouldn't work -- our boards aren't that big -- so opted for this 2 column layout:
 
-{% img /images/HeuristicIdeationRiff.jpg 480 360 %}
-
+<img src='/images/HeuristicIdeationRiff.jpg' width='480' height='360'/>
 You can apply each attribute or action in the left column to each of the
 components on the right; by the time you get through all of them, you'll
 have really thought through possible fragile areas of the system.
@@ -98,8 +93,7 @@ about all of those attributes and actions applied to the next component!
 
 Instead of just using blank index cards, I threw a bit of layout at it.
 
-{% img /images/CompletedCards.jpg  %}
-
+<img src='/images/CompletedCards.jpg'/>
 The extra fields help scope the risk a bit. (Obviously they are all going to be wild-ass guesses, but they still let us group things by order of magnitude.) Primarily, they're just there to get people talking in these kinds of terms about relative possible impacts of unlikely things.
 
 The **#ragemode** tag came from one of our customers who was on the bad end of a miscommunication surrounding some backups, and how fresh they were, (a bit _too_ fresh, in his case), leading to them losing some data. It refers to the fact that some things, when they go wrong, give us the reaction "hey, it's the internet, these things happen." Others are **infuriating**. So it's an attempt to let us weight possible failures by emotional impact.
@@ -118,8 +112,7 @@ First, Heuristic Ideation is awesome. We can use that in all kinds of different 
 
 The biggest improvement to the game is in the Challenge/Solution dynamic. The Challenges tended to be very specific. ("Filesystem gets corrupted.") However, the Solutions have to be pretty generic. ("Reinstall the server from scratch and restore from backup.") Technically, that counted as a point-worthy exchange for the defense, but it didn't really help us explore the problem.
 
-{% img right /images/GiveUpSmall.jpg 180 240 A good example of an overly generic defense %}
-
+<img src='/images/GiveUpSmall.jpg' align='right' width='180' height='240' title='A good example of an overly generic defense' alt='A good example of an overly generic defense'/>
 I'd like to try it this way:
 
 * Still have the Knights do their defensive planning, but not actually make cards in advance

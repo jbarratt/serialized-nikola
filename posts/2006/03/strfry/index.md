@@ -9,7 +9,7 @@
 
 I am not making this up.
 
-{% codeblock lang:text %}
+```
     NAME
         strfry - randomize a string
 
@@ -29,4 +29,4 @@ I am not making this up.
     CONFORMING TO
         The  strfry()  function  is  unique  to  the  Linux C Library and GNU C
         Library.
-{% endcodeblock %}
+```

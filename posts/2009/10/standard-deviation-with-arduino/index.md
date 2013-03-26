@@ -21,7 +21,7 @@ The basic idea is that we take 10 samples quickly (20 ms apart), figure out the 
 
 The [full code](http://hub.serialized.net/gitweb/?p=arduino.git;a=blob_plain;f=Standard_Deviation/Standard_Deviation.pde;hb=HEAD) is available from [my git repository](http://hub.serialized.net/gitweb/), but here's the core of it:
 
-{% codeblock lang:c %}
+``` c
   // Gather sample data
 
   float sampleSum = 0;
@@ -51,7 +51,7 @@ The [full code](http://hub.serialized.net/gitweb/?p=arduino.git;a=blob_plain;f=S
 
   // TADA, STANDARD DEVIATION.
   // this is in units of sensor ticks (0-1023)
-{% endcodeblock %}
+```
 
 
 So, hopefully the comments are self-explanatory (when combined with Wikipedia, if you've never seen Standard Deviation before.)
@@ -60,12 +60,12 @@ At the end of this block you have 2 useful variables defined: 'meanSample', whic
 
 This allows you to do things like
 
-{% codeblock lang:c %}
+``` c
 if(stDev < TOLERANCE) {
     // reading is stable enough
     fireMissleAt(meanSample);
 }
-{% endcodeblock %}
+```
 
 An important note about the units -- the Arduino analogRead values are 12 bit, meaning they range from 0-1023.
 In general, those numbers will "mean something" to you. Perhaps you can convert them to a temperature as we were doing, or a direction froma  compass, or a position on a pot. I chose to do the math with the numbers in as raw a form as possible. This means that if you have a sensorToTemp() function, you can call that on meanSample, but you'd also want to call that on stDev as well. Make sure to
@@ -74,7 +74,7 @@ convert both values into meaningful values for your application. If you just wan
 Along with Standard Deviation came the need to print out some floating point numbers, so I also included some sample code to do that.
 It's hard coded to send things to the serial port, but could be easily tweaked to fabricate a return string or print somewhere else.
 
-{% codeblock lang:c %}
+``` c
 // This is a utility function for printing out floating point values
 // Fixed at %0.2f form. (XX.YY, 2 digits after whatever decimal part there is.)
 void printFloat(float var) {
@@ -89,7 +89,7 @@ void printFloat(float var) {
   }
   Serial.print(float_part, DEC);
 }
-{% endcodeblock %}
+```
 
 Hopefully this helps someone else out. It was fun to write and I'm sure I'll have a use for it someday!
 

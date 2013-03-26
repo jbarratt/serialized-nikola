@@ -15,11 +15,56 @@ def octo_parse(octo_post):
     meta = {}
     body = []
 
+    block_type = None
+
     with open(octo_post, 'r') as f:
         for l in f.readlines():
             if fm_count >= 2:
                 # everything after frontmatter is body
-                body.append(l)
+                # {% img right /images/GiveUpSmall.jpg 180 240 foo %}
+
+                # Convert octopress image blocks
+                m = re.match('\s*\{\s*\%\s*img\s*(right)?\s*(\S*)\s*(\d+)?\s*(\d+)?\s*(.*?)\s*\%\s*\}', l)
+                if m:
+                    (right, source, width, height, alt) = m.groups()
+                    img_tag = "<img src='%s'" % source
+                    if right:
+                        img_tag += " align='right'"
+                    if width:
+                        img_tag += " width='%s'" % width
+                    if height:
+                        img_tag += " height='%s'" % height
+                    if alt:
+                        img_tag += " title='%s' alt='%s'" % (alt, alt)
+                    img_tag += "/>"
+                    body.append(img_tag)
+                    continue
+
+                # convert octopress blockquote and code blocks
+                m = re.match('\s*\{\s*\%\s*(end)?(\w+)\s*(?:lang:)?(\w+)?\s*\%', l)
+                if m:
+                    (ended, b_type, lang) = m.groups()
+                    if ended is not None:
+                        if block_type == "codeblock":
+                            body.append("```\n")
+                        block_type = None
+                        continue
+                    else:
+                        block_type = b_type
+                        if block_type == "codeblock":
+                            opener = "```"
+                            if lang and lang != "text":
+                                opener += " %s" % lang
+                            body.append(opener + '\n')
+                        continue
+
+                if block_type is None:
+                    body.append(l)
+                elif block_type == "blockquote":
+                    body.append("> " + l)
+                elif block_type == "codeblock":
+                    body.append(l)
+
             elif re.match('^\s*-+\s*$', l):
                 # YAML frontmatter marker
                 fm_count = fm_count + 1

@@ -13,9 +13,9 @@ Then I downloaded them to our local fileserver (in case we need them again, plus
 
 So, instead of downloading them again:
 
-{% codeblock lang:console %}
+``` console
 $ rsync -c --existing --stats -e ssh server:download/heidelberg-binary-i386/*.iso .
-{% endcodeblock %}
+```
 
 Let rsync figure out exactly what portions of the file are screwed up, and then let it correct them for you! The trick turned out to be the '-c' flag, which forces it to do a checksum on the files. (Otherwise, since all the other metadata matches, it won't bother diffing.)
 

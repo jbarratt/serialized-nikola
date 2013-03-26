@@ -13,23 +13,23 @@ Turns out to be possible, but you need some sed fu, and why not use perl.
 
 So now I can type
 
-{% codeblock lang:console %}
+``` console
 $ ls | randline
-{% endcodeblock %}
+```
 
 
 and get a random selection from the list. If I want to go all crazy and not even screen it, I can go with 
 
-{% codeblock lang:console %}
+``` console
 $ xmms -e `ls | randline`.
-{% endcodeblock %}
+```
 
 
 Here's the `.bashrc` entry I used:
 
-{% codeblock lang:bash %}
+``` bash
     alias randline="perl -we 'srand ; rand(\$.) < 1 && (\$line = \$_) while <STDIN>; chomp(\$line); print \"\$line\\n\";'"
-{% endcodeblock %}
+```
 
 
 The 'guts' came from an entry in the [Perl Cookbook](http://www.unix.org.ua/orelly/perl/cookbook/ch08_07.htm), worth checking out due to their description of how it actually works. It's a neat idea. Basically, you look at each line one by one. Each time you do you have a 1/(line number) chance of choosing that line as the one you'll output. So if you just have one line, you've got a 1/1 chance of choosing that line. If you have 2, you start out with a taking the first line, and then having a 1/2 chance of picking the second -- giving you 50/50 odds you'll have either the first or the second. It extends nicely.

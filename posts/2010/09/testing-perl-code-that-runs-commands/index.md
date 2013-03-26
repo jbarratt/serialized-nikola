@@ -36,7 +36,7 @@ The important thing is to use `IPC::Run::run` to actually run the code, instead 
 
 This is in [lib/Acme/System.pm](http://github.com/jbarratt/Acme-System/blob/master/lib/Acme/System.pm). Here's the pidsum method (the `vmstat_col` method is basically the same, check out the full code if you're curious):
 
-{% codeblock lang:perl %}
+``` perl
     =method pidsum
         Return the sum of all the PID's on a system
     =cut
@@ -51,7 +51,7 @@ This is in [lib/Acme/System.pm](http://github.com/jbarratt/Acme-System/blob/mast
             split(/\n/, $ps_output)
         );
     };
-{% endcodeblock %}
+```
 
 So, as I said, stupid code. I only care about getting the output, so I pass in undef for the other values -- `IPC::Run::run` wants you to supply them anyway.
 
@@ -65,7 +65,7 @@ Check out the the [whole test file](http://github.com/jbarratt/Acme-System/blob/
 
 There's a few bits of weirdness, for sure. Down the end you'll see:
 
-{% codeblock lang:text %}
+```
     __DATA__
     __[ ps -Ao pid,cmd ]__
     PID CMD
@@ -78,7 +78,7 @@ There's a few bits of weirdness, for sure. Down the end you'll see:
     r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
     0  0    648  85932 194240 119124    0    0     0     5    2   51  0  0 100  0
     __END__
-{% endcodeblock %}
+```
 
 This is the format that `Data::Section` wants. You just need to stash each command you run between the underscored square brackets, and follow it with some sample command line data.
 
@@ -88,11 +88,11 @@ So to make that work, you need to:
 * Give your test a package name. I chose to just stick a `Test::` in front of the module name.
 * Give `Data::Section` an instance of that object to stick it's methods into.
 
-{% codeblock lang:perl %}
+``` perl
     # magic; Data::Section wants this to be a module, not a test file.
     # trick into thinking this hashref is a member of Test::Acme::System
     my $data = {}; bless $data;
-{% endcodeblock %}
+```
 
 This is the only part of this whole technique that feels truly hacky. If anyone has suggestions for better ways to manage this, let me know.
 
@@ -104,26 +104,26 @@ There are lots of ways to override a module's methods; I have had good experienc
 
 Here's the code that makes that evil hack above worthwhile. Here's all you have to do to recover those canned program execution results, using the `section_data` method provided by `Data::Section` (and that hacky `$data` reference):
 
-{% codeblock lang:perl %}
+``` perl
     sub mock_ipc_run {
         my($cmd, $stdin, $stdout, $stderr) = @_;
         $$stdout = ${$data->section_data(join(" ", @$cmd))};
     }
-{% endcodeblock %}
+```
 
 #### "Mock" that in place
 
-{% codeblock lang:perl %}
+``` perl
     # override the real run object with one that will use the __DATA__ block
     my $module = new Test::MockModule('IPC::Run');
     $module->mock('run', \&mock_ipc_run);
-{% endcodeblock %}
+```
 
 ### Actually doing the testing
 
 At this point, test away!
 
-{% codeblock lang:perl %}
+``` perl
 # Actually "run the tests", using the canned results from the __DATA__ block
 cmp_ok(Acme::System::pidsum(), "==", 8278);
 
@@ -133,33 +133,33 @@ cmp_ok(Acme::System::vmstat_col("cs"), "==", 51);
 cmp_ok(Acme::System::vmstat_col("swpd"), "==", 648);
 
 done_testing;
-{% endcodeblock %}
+```
 
 So I can (independently) calculate what the results should have been, given the arbitrary data I've saved in the `__DATA__` block, and test based on those values. Awesome.
 
-{% codeblock lang:perl %}
+``` perl
 jbarratt@dev:~/work/Acme-System$ prove -l t/00-fakerun.t 
 t/00-fakerun.t .. ok   
 All tests successful.
 Files=1, Tests=5,  0 wallclock secs ( 0.01 usr  0.03 sys +  0.00 cusr  0.10 csys =  0.14 CPU)
 Result: PASS
-{% endcodeblock %}
+```
 
 ### Trust me, the normal code will still actually call the system
 
 Just for fun, I threw in a [script that actually uses this module to get live data](http://github.com/jbarratt/Acme-System/blob/master/bin/live):
 
-{% codeblock lang:perl %}
+``` perl
     use Acme::System;
 
     print "Sum of all system PID's: " . Acme::System::pidsum() . "\n";
 
     print "Current CPU user time: " . Acme::System::vmstat_col("us") . "\n";
     print "Current Free Mem: " . Acme::System::vmstat_col("free") . "\n";
-{% endcodeblock %}
+```
 
 And sure enough, if you run it, the data is getting updated live. `IPC::Run` really is working on the live system.
-{% codeblock lang:console %}
+``` console
 jbarratt@dev:~/work/Acme-System/lib$ ../bin/live
 Sum of all system PID's: 367273
 Current CPU user time: 0
@@ -168,7 +168,7 @@ jbarratt@dev:~/work/Acme-System/lib$ ../bin/live
 Sum of all system PID's: 367291
 Current CPU user time: 0
 Current Free Mem: 70556
-{% endcodeblock %}
+```
 
 ## Wrapping it all up
 

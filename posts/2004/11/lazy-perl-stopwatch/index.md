@@ -9,7 +9,7 @@
 
 I needed a quick stopwatch to give me elapsed time on an event. (Making sure a transit took the right amount of time.) Perl to the rescue...
 
-{% codeblock lang:perl %}
+``` perl
     #!/usr/bin/perl -w
     # lazy stopwatch. Prints elapsed time each time you hit enter.
 
@@ -22,17 +22,17 @@ I needed a quick stopwatch to give me elapsed time on an event. (Making sure a t
     print tv_interval($t0,$t1); # print elapsed time between enter key hits.
     $t0 = $t1;
     }
-{% endcodeblock %}
+```
 
 
 So to use it, run it in a shell, hit `[Enter]` to start timing, `[Enter]` again to stop, and you'll see the elapsed time. Ends up looking something like...
 
-{% codeblock lang:text %}
+```
     0.450393
     0.514762
     1.311815
     1.488909
-{% endcodeblock %}
+```
 
 
 Wheee!

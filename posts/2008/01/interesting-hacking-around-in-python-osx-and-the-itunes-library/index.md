@@ -12,7 +12,7 @@ While working on a project for a friend, Amber accidentally deleted a playlist o
 Thankfully, though it's a bit out of date, we've been good(ish) about keeping backups. I thought "I bet I can get the playlist info out of the iTunes library file in the backup!" Sure enough, I mounted the drive, took a look, and there the data was. It wasn't that useful though.
 
 
-{% codeblock lang:xml %}
+``` xml
  <key>Name</key><string>The Special Playlist</string>
                         <key>Playlist ID</key><integer>14915</integer>
                         <key>Playlist Persistent ID</key><string>F668E7C09FF9F9AC</string>
@@ -29,7 +29,7 @@ Thankfully, though it's a bit out of date, we've been good(ish) about keeping ba
                                         <key>Track ID</key><integer>3527</integer>
                                 </dict>
 
-{% endcodeblock %}
+```
 
 So normally I break out the perl here, and it looked like there was some CPAN modules to get it done, but the iTunes XML parser library looks like it wasn't packaged right and I couldn't install it via CPAN, blah blah blah. I've been trying to break out the python more often, so searched for 'python itunes xml library parse' and found this gem from 2005:
 
@@ -38,7 +38,7 @@ So normally I break out the perl here, and it looked like there was some CPAN mo
 In which the author uses a neat trick (the Python/Objective C bindings) to parse the iTunes library. After a bit of a bumpy start, I ended up with the following code:
 
 
-{% codeblock lang:python %}
+``` python
     #!/usr/bin/python
     from Foundation import *
     dbFile = "itunes_from_backup.xml"
@@ -57,7 +57,7 @@ In which the author uses a neat trick (the Python/Objective C bindings) to parse
             except:
                     pass
 
-{% endcodeblock %}
+```
 
 
 <p>Which yeilds a nice list like:

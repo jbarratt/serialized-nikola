@@ -15,15 +15,15 @@ The rule is, generally, that you need to do all the ones you missed. So if you m
 
 But it's kind of annoying to punch all those numbers into a calculator to find the number, and there's a good chance I'd typo something. Thankfully there is a math trick (with a good explanation over at [WikiHow](http://www.wikihow.com/Sum-the-Integers-from-1-to-N) for how to do it and how it works) for finding the sum of all the numbers from 1 to some number 'N'. Short version, the sum is 
 
-{% codeblock lang:text %}
+```
 (N*(N+1))/2
-{% endcodeblock %}
+```
 
 So if I want to find how many I missed between the 12th and the 18th, I just need to find the sum of 1 to 18 ( and subtract the part I already did, the sum from 1 to 11). In other words:
 
-{% codeblock lang:text %}
+```
 ((18*19)-(11*12))/2, or 105.
-{% endcodeblock %}
+```
 
 Hence, a quick and dirty calculator. Just punch in the last count you did, the count you should be doing today, hit enter, and the third box will give you your wonderful total you need to do today (including today's.)
 

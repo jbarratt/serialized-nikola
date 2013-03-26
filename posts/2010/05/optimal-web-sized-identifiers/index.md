@@ -51,7 +51,7 @@ I sketched up a little script for this article (which you can [grab from my git 
 
 The goal is, given our constraints, and the fact that we need to use only the characters 0 .. 9, a .. z, A .. Z, (a) how many of those characters do we need, and (b) given that it probably won't be an exact fit, what will our collision probability end up being?
 
-{% codeblock lang:perl %}
+``` perl
 my ($items, $probability) = (0,0);
 GetOptions("items=i" => \$items, "probability=f" => \$probability);
 
@@ -97,7 +97,7 @@ sub get_probability {
     my($max, $items) = @_;
     return 1 - (($max - 1)/$max)**(($items*($items-1))/2);
 }
-{% endcodeblock %}
+```
 
 The most mysterious parts of this are probably the formulas. The one in the get_probability subroutine is transcribed right [from the Wikipedia page](http://en.wikipedia.org/wiki/Birthday_paradox#Calculating_the_probability), but the other one is the same formula, solved for a different value. In general, if you need to do this, [WolframAlpha](http://wolframalpha.com) is a math nerd's dream come true. I just asked it to "solve (the equation) for d" and got the new formula I needed.
 ![solve equation](/images/solve_equation.jpg "Solve Equation")
@@ -110,7 +110,7 @@ Here's the formula I ended up using:
 Here's a few sample runs of the script:
 
 First, using my personal constraints for this project:
-{% codeblock lang:console %}
+``` console
 $ ./hashspace_model -i 20000 -p 0.99
 Trying to store 20000 items with a 0.99000 chance of collision
 To do that, we'd need to be working in the range 1:43427276.7179157
@@ -118,13 +118,13 @@ probability 0.9900000006 should match your requested probability of 0.9900000000
 This can be represented by 25.37 bits (26)
 Using 0..9, a..z and A..Z we can represent each object with 5 digits
 Given that we'll have to use 5 digits, (29 bits), the real probability of a collision is 0.1961141788
-{% endcodeblock %}
+```
 
 Cool! So I said I'm ok with a 99% chance of a collision, and the algorithm figured out that in order to do that, I'd need to be using 5 digits of base62. And if I'm using 5 digits of base62, I get 3 more bits than I strictly "need", which means I end up with only about a 1/5 chance of EVER getting a collision.
 
 Let's say I wanted to be more strict, and go "one in a million".
 
-{% codeblock lang:console %}
+``` console
 $ ./hashspace_model -i 20000 -p 0.000001
 Trying to store 20000 items with a 0.000001 chance of collision
 To do that, we'd need to be working in the range 1:199989899999232
@@ -132,7 +132,7 @@ probability 0.0000009992 should match your requested probability of 0.0000010000
 This can be represented by 47.51 bits (48)
 Using 0..9, a..z and A..Z we can represent each object with 8 digits
 Given that we'll have to use 8 digits, (47 bits), the real probability of a collision is 0.0000009103
-{% endcodeblock %}
+```
 
 In this case base62 comes pretty close to exactly the dimensions that we want, so we more or less get 1/1,000,000 on the nose with 8 digits.
 
@@ -146,20 +146,20 @@ I chose md5 because.... it seems to work fine. I'm sure there's a better option,
 
 First, you need to know how many bits you want. Thankfully, I know I want 29 bits (thanks, helper script!). I can extract 29 bits of information from it by making a "mask" of 29 1's, which can be done easily like so:
 
-{% codeblock lang:perl %}
+``` perl
 my $mask = 2**29 - 1;
-{% endcodeblock %}
+```
 
 So, now I just need a raw integer slice of an md5, and do a "logical and" of that:
 
-{% codeblock lang:perl %}
+``` perl
 use Digest::MD5 qw(md5);
 # unpack makes this back into an integer for us
 # L == interpret the data as a 32 bit unsigned long. 
 # See 'perldoc -f pack' for a ton of other options
 my $value = unpack("L", md5("the string we want"));
 $value = $value & $mask;
-{% endcodeblock %}
+```
 
 Groovy. Now we know what number we want to represent, we need to actually represent that in this weird "base62" format.
 
@@ -180,7 +180,7 @@ Simple enough to understand in base10, but the exact same technique works when g
 
 Here's the source for it:
 
-{% codeblock lang:perl %}
+``` perl
 # even though they are letters we are using them here in the role of "digits"
 my @digits = (0 .. 9, 'a' .. 'z', 'A' .. 'Z');
 my %digits = map { $digits[$_] => $_ } 0 .. $#digits;
@@ -211,7 +211,7 @@ sub from_base {
     }
     return $value;
 }
-{% endcodeblock %}
+```
 
 So there you have it. Provably optimal URI-compatible identifiers with 3 easy steps:
 

@@ -16,7 +16,7 @@ Wordpress was able to connect to my textile database and inhale all my posts. (T
 What to do? 
 
 I made a quick YAML config to store database options in, config.yml:
-{% codeblock lang:yaml %}
+``` yaml
     ---
     dbserver: mydbserver.com
     dbuser: mydbuser
@@ -25,13 +25,13 @@ I made a quick YAML config to store database options in, config.yml:
     dbtable: wp_posts
     dbcolumn: post_content
     dbkeycolumn: ID 
-{% endcodeblock %}
+```
 
 I didn't hard code it in the doc so I could generically do this kind of thing later if I wanted.
 
 And then, the cowboy perl to inhale the markup and go from Textile to HTML, using the handy [Formatter::HTML::Textile](http://search.cpan.org/~kjetilk/Formatter-HTML-Textile-0.7/lib/Formatter/HTML/Textile.pm):
 
-{% codeblock lang:perl %}
+``` perl
     #!/usr/bin/perl
 
     use strict;
@@ -57,7 +57,7 @@ And then, the cowboy perl to inhale the markup and go from Textile to HTML, usin
         my $newtext = $formatter->fragment();
         $usth->execute($newtext, $key);
     }
-{% endcodeblock %}
+```
 
 And in a fraction of a second, all my old blog posts were converted, in all their (arguable) glory. From now on I'm only blogging in XHTML, suckers.
 

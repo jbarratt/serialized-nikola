@@ -30,7 +30,7 @@ Fill in your applescript, replacing only the center "comment" block -- leave the
 
 The core code again, (tweak to fit your accounts and archive mailbox names)
 
-{% codeblock lang:applescript %}
+``` applescript
     tell application "Mail"
         set theSelectedMessages to selection
         set myAccount to "zimbra"
@@ -39,7 +39,7 @@ The core code again, (tweak to fit your accounts and archive mailbox names)
             move theMessage to mailbox myMailbox of account myAccount
         end repeat
     end tell
-{% endcodeblock %}
+```
 
 It should look something like this:
 ![Automator: Archive Applescript](/images/automator_archive.jpg "Automator: Archive Applescript")
