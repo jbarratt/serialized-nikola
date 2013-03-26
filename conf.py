@@ -18,7 +18,12 @@ SITE_URL = "http://serialized.net"
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://nikola.ralsina.com.ar
 BLOG_EMAIL = "jbarratt@serialized.net"
-BLOG_DESCRIPTION = "A study in fascination burnout"
+BLOG_DESCRIPTION = "Joshua Barratt's Writings on Technology, Food, and other fascinations."
+
+EXTRA_HEAD_DATA = """
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic|Oswald:400,700' rel='stylesheet' type='text/css'>
+"""
 
 # What is the default language?
 DEFAULT_LANG = "en"
@@ -31,8 +36,15 @@ TRANSLATIONS = {
 # You should provide a key-value pair for each used language.
 SIDEBAR_LINKS = {
     DEFAULT_LANG: (
-        ('/archive.html', 'Archives'),
-        ('/categories/index.html', 'Tags'),
+        ('/about/', '<i class="icon-coffee"></i> About'),
+        ('/archive/', '<i class="icon-book"></i> Archive'),
+        ('mailto:%s' % BLOG_EMAIL, '<i class="icon-envelope"></i>'),
+        ('http://twitter.com/jbarratt',
+         '<i class="icon-twitter"></i>'),
+        ('http://github.com/jbarratt',
+         '<i class="icon-github-alt"></i>'),
+        #('/categories/index.html', 'Tags'),
+        ('/rss.xml', '<i class="icon-rss"></i>'),
     ),
 }
 
@@ -67,7 +79,9 @@ post_pages = (
     ("posts/*.txt", "", "post.tmpl", True),
     ("posts/*.md", "", "post.tmpl", True),
     ("posts/*.html", "", "post.tmpl", True),
-    ("stories/*.txt", "stories", "story.tmpl", False),
+    ("stories/*.txt", "", "story.tmpl", False),
+    ("stories/*.md", "", "story.tmpl", False),
+    ("stories/*.html", "", "story.tmpl", False),
 )
 
 # One or more folders containing files to be copied as-is into the output.
@@ -117,6 +131,8 @@ TAG_PAGES_ARE_INDEXES = False
 # output / TRANSLATION[lang] / ARCHIVE_PATH / ARCHIVE_FILENAME
 # output / TRANSLATION[lang] / ARCHIVE_PATH / YEAR / index.html
 # ARCHIVE_PATH = ""
+ARCHIVE_PATH="archive/"
+ARCHIVE_FILENAME="index.html"
 # ARCHIVE_FILENAME = "archive.html"
 # Final locations are:
 # output / TRANSLATION[lang] / RSS_PATH / rss.xml
@@ -198,7 +214,7 @@ GZIP_EXTENSIONS = ('.txt', '.htm', '.html', '.css', '.js', '.json')
 # INDEXES_PAGES = ""  # If this is empty, the default is 'old posts page %d' translated
 
 # Name of the theme to use. Themes are located in themes/theme_name
-# THEME = 'site'
+THEME = 'serialized'
 
 # If you use 'site-reveal' theme you can select several subthemes
 # THEME_REVEAL_CONGIF_SUBTHEME = 'sky' # You can also use: beige/serif/simple/night/default
@@ -207,7 +223,7 @@ GZIP_EXTENSIONS = ('.txt', '.htm', '.html', '.css', '.js', '.json')
 # THEME_REVEAL_CONGIF_TRANSITION = 'cube' # You can also use: page/concave/linear/none/default
 
 # date format used to display post dates. (str used by datetime.datetime.strftime)
-DATE_FORMAT = '%Y-%m-%d %H:%M'
+DATE_FORMAT = '%Y-%m-%d'
 
 # FAVICONS contains (name, file, size) tuples.
 # Used for create favicon link like this:
@@ -241,10 +257,11 @@ CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
 # http://disqus.com, and set DISQUS_FORUM to the short name you selected.
 # If you want to disable comments, set it to False.
 # Default is "nikolademo", used by the demo sites
-# DISQUS_FORUM = "nikolademo"
+DISQUS_FORUM = False
 
 # Create index.html for story folders?
-STORY_INDEX = True
+#STORY_INDEX = True
+
 # Enable comments on story pages?
 # COMMENTS_IN_STORIES = False
 # Enable comments on picture gallery pages?
@@ -273,7 +290,7 @@ STRIP_INDEX_HTML = True
 
 # Enable Addthis social buttons?
 # Defaults to true
-# ADD_THIS_BUTTONS = True
+ADD_THIS_BUTTONS = False
 
 # Modify the number of Post per Index Page
 # Defaults to 10

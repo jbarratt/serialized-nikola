@@ -1,0 +1,27 @@
+## -*- coding: utf-8 -*-
+<%inherit file="base.tmpl"/>
+<%block name="content">
+        <!--Body content-->
+        <div class="postbox">
+        <h1>${title}</h1>
+        </div>
+        <div class="tabbable tabs-left">
+            <ul class="nav nav-tabs">
+                % for year in years:
+                <li ${'class="active"' if loop.index == 0 else ''}><a href="#tab_${year['year']}" data-toggle="tab">${year['year']}</a></li>
+                % endfor
+            </ul>
+            <div class="tab-content">
+                % for year in years:
+                <div class="tab-pane${' active' if loop.index == 0 else ''}" id="tab_${year['year']}">
+                    <ul class="unstyled">
+                    % for post in year['posts']:
+                        <li><small>${post.formatted_date('%b %e')}: </small><h4><a href="${post.permalink()}">${post.title()}</a></h4>
+                    % endfor
+                    </ul>
+                </div>
+                % endfor
+            </div>
+        </div>
+        <!--End of body content-->
+</%block>

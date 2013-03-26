@@ -1,0 +1,9 @@
+[Core]
+Name = render_archive
+Module = task_archive
+
+[Documentation]
+Author = Joshua Barratt
+Version = 0.1
+Website = http://serialized.net
+Description = Generates a single page archive
