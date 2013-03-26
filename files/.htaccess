@@ -6,6 +6,7 @@ RewriteEngine On
 RewriteRule ^(feed|atom)/ http://serialized.net/rss.xml [R=301]
 RewriteRule ^feed$ http://serialized.net/rss.xml [R=301]
 RewriteRule ^index.rdf http://serialized.net/rss.xml [R=301]
+RewriteRule ^atom.xml http://serialized.net/rss.xml [R=301]
 
 # Protect this file
 <Files .htaccess>
