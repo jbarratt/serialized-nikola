@@ -18,6 +18,8 @@ If you're a comedy fan, there are a lot of familiar names on this list. Especial
 
 If you're a comedy fan and you *don't* know most of the names on this list, well, start clicking. Everyone on here is worth your time.
 
+_Something odd is going on with the graphs sometimes; if you don't see them below, hit reload and it seems to work._
+
 <script type="text/javascript" src="/sparky/sparky-raph-min.js"></script>
 <style type="text/css"> @import url(/sparky/screen.css); </style>
 <div class="row-fluid">
