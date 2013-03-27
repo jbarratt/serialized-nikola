@@ -1,0 +1,16 @@
+span.sparkline {
+    display: inline-block;
+    width: 5em;
+    height: 15px;
+    margin: 0 .2em;
+    vertical-align: baseline;
+}
+
+*.fw {
+    font-variant: small-caps;
+}
+
+.warning {
+    background-color: #ffc;
+    margin: .2em 0;
+}
