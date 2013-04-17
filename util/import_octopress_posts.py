@@ -108,15 +108,14 @@ def nikola_save(np_dir, meta, body):
         .. description:
     """
 
-    newdir = "%s/%s/%s/%s" % (np_dir, meta['year'], meta['month'], meta['slug'])
-    # make this an index so we end up with YYYY/MM/<slug>/index.html
-    meta['slug'] = 'index'
+    newdir = "%s/%s/%s" % (np_dir, meta['year'], meta['month'])
+    # make this an index so we end up with YYYY/MM/<slug>.extension
     try:
         os.makedirs(newdir)
     except OSError:
         pass
 
-    newfile = "%s/index.md" % (newdir)
+    newfile = "%s/%s.md" % (meta['slug'], newdir)
     with open(newfile, 'w') as f:
         f.write('<!--\n')
         for key in ['title', 'date', 'slug']:
