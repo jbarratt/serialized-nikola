@@ -271,7 +271,10 @@ DISQUS_FORUM = False
 # Enable comments on picture gallery pages?
 # COMMENTS_IN_GALLERIES = False
 
-STRIP_INDEX_HTML = True
+STRIP_INDEXES = True
+#INDEX_FILE = 'index.html'
+
+PRETTY_URLS = True
 
 # Do you want a add a Mathjax config file?
 # MATHJAX_CONFIG = ""
