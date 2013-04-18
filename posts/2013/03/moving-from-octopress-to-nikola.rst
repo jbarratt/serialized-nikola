@@ -5,6 +5,12 @@
 .. link: 
 .. description: 
 
+
+.. note::
+
+    *Updated* 2013/04/17 to reflect new nikola capabilities like
+    PRETTY_URLS=True
+
 As I mention in the `About </about/>`_ page, I've moved blog engines quite a few
 times. Probably too many times. So I've learned from experience not to say that
 this time it's for good -- but so far, I'm loving `Nikola. <http://nikola.ralsina.com.ar/>`_
@@ -56,12 +62,8 @@ script for your needs. It will create a directory tree like::
     posts/
         2013/
             01/
-                my-post-title/
-                    index.md
-                other-post-title/
-                    index.md
-
-It's a little chatty but it works.
+                my-post-title.md
+                other-post-title.md
 
 It only copies over posts; I only had one page, so I moved it by hand. I also
 just copied over my ``images/`` tree, no tweaks required.
@@ -74,7 +76,10 @@ My configuration is `in the repo <https://github.com/jbarratt/serialized-nikola/
     # if a link ends in /something/index.html, make it just /something/
     # this, with the directory tree above,
     # makes posts look like they did in octopress
-    STRIP_INDEX_HTML = True
+    STRIP_INDEXES = True
+
+    # Instead of deploying files to /slug.html, make them slug/index.html
+    PRETTY_URLS = True
 
     # The empty quotes in the center mean that all pages and posts
     # get copied into the site's '/', which is how Octopress defaults.
@@ -99,7 +104,7 @@ Remaining Issues
 
 1. When you run ``$ nikola new_post`` it doesn't know about the YYYY/MM/... post
    structure, so I've been just creating my posts by hand and loading in the
-   metadata with an `UltiSnips <https://launchpad.net/ultisnips>`_ `snippet <https://github.com/jbarratt/dotfiles/commit/de74e8f5b5d340e6a9b64fac07f84e6898410ea7>`_. While I could make a new Nikola plugin to do this, I'm considering a patch which makes the ``YYYY/MM/name-of-post/index.rst`` structure unnecessary.
+   metadata with an `UltiSnips <https://launchpad.net/ultisnips>`_ `snippet <https://github.com/jbarratt/dotfiles/commit/de74e8f5b5d340e6a9b64fac07f84e6898410ea7>`_. While I could make a new Nikola plugin to do this, I'm considering a patch which makes the ``YYYY/MM/name-of-post.rst`` structure unnecessary.
 
 2. For some reason intermediate directories (like the ``2003`` part of ``2003/03/my-post/index.rst`` are showing up in the sitemap, even though they throw 403 errors.
 
