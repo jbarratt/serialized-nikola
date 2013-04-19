@@ -53,7 +53,7 @@ So now when I put a new SD card into my pi, boot it up, all I have to do is::
     $ key_rpi
     pi@192.168.1.155's password:
 
-and it works. I'm keyed, and can ssh in now as easily as ``ssh pi@`rpi_ip``.
+and it works. I'm keyed, and can ssh in now as easily as ``ssh pi@`rpi_ip```.
 (Until I use Ansible to set up ``mDNS`` seconds later, which is probably good to
 leave for another post.)
 

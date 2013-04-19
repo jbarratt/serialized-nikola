@@ -7,6 +7,10 @@ h1 {
     text-shadow: 1px 1px 1px #ccc;
 }
 
+h1 > a {
+    color: #333;
+}
+
 h2 {
     font-family: "Lora", sans-serif;
 }
