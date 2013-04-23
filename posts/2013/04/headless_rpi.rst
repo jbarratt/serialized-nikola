@@ -6,14 +6,10 @@
 .. slug: headless_rpi
 
 My brother got me a Raspberry Pi for my birthday (thanks!) -- a device I'd
-wanted to get for some time, but hadn't quite yet been able to justify. I think
-those sorts of things make the best gifts.
+wanted to get for some time, but hadn't quite yet been able to justify. I think those sorts of things make the best gifts.  
 
-You need just a few things to get a Pi up and running, but 2 things on the list
-(an HDMI-speaking display and an Ethernet port) don't appear in the same room in
-my house. Thankfully, the latest releases of Raspbian (the rPi Debian
-Distribution) come with DHCP and ``ssh`` pre-configured, so if you plug the pi into
-a network, you'll be able to connect to it.
+You need just a few things to get a Pi up and running, but 2 things on the list (an HDMI-speaking display and an Ethernet port) don't appear in the same room in my house. Thankfully, the latest releases of Raspbian (the rPi Debian
+Distribution) come with DHCP and ``ssh`` pre-configured, so if you plug the pi into a network, you'll be able to connect to it.
 
 At first, I was doing an ``nmap`` scan for ``-p 22 --open``, but that's not
 actually that quick. I was able to speed it up by tweaking some options::

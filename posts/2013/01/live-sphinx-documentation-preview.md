@@ -8,6 +8,8 @@
 -->
 
 
+**Update** (_2013-04-23_): ``livereload`` now has a 'shell' compiler, which simplifies the ``Guardfile``. The post has been modified to reflect this.
+
 ## The big idea
 
 I've been working with [Middleman][] quite a bit, and really enjoyed their integration with [livereload.js][].
@@ -52,6 +54,8 @@ This part's easy.
 
 (or however else you like to install python modules.)
 
+If it's already installed, upgrade it -- newer releases have some required features.
+
 ### Create a Guardfile
 
 Create this file in the root of your [Sphinx][] documentation tree. (Next to the `Makefile`.)
@@ -59,17 +63,10 @@ Create this file in the root of your [Sphinx][] documentation tree. (Next to the
 ``` python
 #!/usr/bin/env python
 from livereload.task import Task
-import subprocess
-import functools
-
-@functools.partial
-def build_sphinx():
-    """ Any time a file is modified, call ``make html`` """
-    import subprocess
-    subprocess.call(['make', 'html'])
+from livereload.compiler import shell
 
 # You may have a different path, e.g. _source/
-Task.add('source/', build_sphinx)
+Task.add('source/', shell('make html'))
 ```
 
 ### Run livereload
@@ -87,7 +84,7 @@ You have to make changes in 3 different spots in the file:
 # And now the target; depends on 'make html', since livereload will only build if things change.
 # We need to make sure the docs are current with any existing changes
 livehtml: html
-    livereload -p 8000 -b $(BUILDDIR)/html
+    livereload -b $(BUILDDIR)/html
 ```
 
 So all you have to do is
@@ -98,7 +95,7 @@ $ make livehtml
 
 and start editing.
 
-The `-b` option was another pull request; it will actually open the browser and point it at `localhost:8000`, which is a feature I'd never seen in other livereload implementations, but seemed quite convenient.
+The `-b` option was another pull request; it will actually open the browser and point it at `localhost:<port>`, which is a feature I'd never seen in other livereload implementations, but seemed quite convenient.
 
 ### Enjoy!
 
