@@ -1,5 +1,3 @@
-
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import time
 
@@ -13,7 +11,7 @@ BLOG_AUTHOR = "Joshua Barratt"
 BLOG_TITLE = "serialized.net"
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://serialized.net"
+SITE_URL = "http://serialized.net/"
 # This is the URL where nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://nikola.ralsina.com.ar
@@ -29,13 +27,17 @@ EXTRA_HEAD_DATA = """
 # What is the default language?
 DEFAULT_LANG = "en"
 
+LOCALES = {
+    'en': 'en_US'
+}
+#
 TRANSLATIONS = {
     "en": "",
 }
 
 # Links for the sidebar / navigation bar.
 # You should provide a key-value pair for each used language.
-SIDEBAR_LINKS = {
+NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/about/', '<i class="icon-coffee"></i> About'),
         ('/archive/', '<i class="icon-book"></i> Archive'),
@@ -76,14 +78,17 @@ SIDEBAR_LINKS = {
 # rss feeds.
 #
 
-post_pages = (
-    ("posts/*.txt", "", "post.tmpl", True),
-    ("posts/*.rst", "", "post.tmpl", True),
-    ("posts/*.md", "", "post.tmpl", True),
-    ("posts/*.html", "", "post.tmpl", True),
-    ("stories/*.txt", "", "story.tmpl", False),
-    ("stories/*.md", "", "story.tmpl", False),
-    ("stories/*.html", "", "story.tmpl", False),
+POSTS = (
+    ("posts/*.txt", "", "post.tmpl"),
+    ("posts/*.rst", "", "post.tmpl"),
+    ("posts/*.md", "", "post.tmpl"),
+    ("posts/*.html", "", "post.tmpl")
+)
+
+STORIES = (
+    ("stories/*.txt", "", "story.tmpl"),
+    ("stories/*.md", "", "story.tmpl"),
+    ("stories/*.html", "", "story.tmpl")
 )
 
 # One or more folders containing files to be copied as-is into the output.
@@ -99,7 +104,7 @@ post_pages = (
 # 'rest' is reStructuredText
 # 'markdown' is MarkDown
 # 'html' assumes the file is html and just copies it
-post_compilers = {
+COMPILERS = {
     "rest": ('.txt', '.rst'),
     "markdown": ('.md', '.mdown', '.markdown'),
     "textile": ('.textile',),
@@ -261,7 +266,9 @@ CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
 # http://disqus.com, and set DISQUS_FORUM to the short name you selected.
 # If you want to disable comments, set it to False.
 # Default is "nikolademo", used by the demo sites
-DISQUS_FORUM = False
+#DISQUS_FORUM = False
+COMMENT_SYSTEM_ID = False
+
 
 # Create index.html for story folders?
 #STORY_INDEX = True
@@ -297,7 +304,7 @@ PRETTY_URLS = True
 
 # Enable Addthis social buttons?
 # Defaults to true
-ADD_THIS_BUTTONS = False
+SOCIAL_BUTTONS_CODE = ""
 
 # Modify the number of Post per Index Page
 # Defaults to 10
@@ -347,7 +354,7 @@ RSS_TEASERS = False
 # Google analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
 # ANALYTICS = ""
-ANALYTICS = """
+BODY_END = """
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -410,7 +417,7 @@ FILE_METADATA_REGEXP = None
 USE_BUNDLES = True
 
 # Plugins you don't want to use. Be careful :-)
-# DISABLED_PLUGINS = ["render_galleries"]
+DISABLED_PLUGINS = ["render_archive"]
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.

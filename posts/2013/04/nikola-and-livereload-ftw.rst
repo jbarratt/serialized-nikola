@@ -5,6 +5,10 @@
 .. title: Nikola and Livereload, dynamically editing a static site
 .. slug: nikola-and-livereload-ftw
 
+.. note::
+
+    The author of Nikola liked this approach enough to integrate it into nikola core, so if you're running a recent version you can just run ``nikola auto``. I'm keeping the post up in case the approach is useful for others.
+
 I've blogged about `using python-livereload </2013/01/live-sphinx-documentation-preview/>`_ before. It's a great little tool which
 
 * given a tree of directories and files, watches them for changes, then takes some action when they happen
