@@ -15,4 +15,8 @@ I got a `lot <https://twitter.com/jpetazzo/status/393523628836278272>`_ `of <htt
 
     <iframe src="/dockertalk/index.html" height="384" width="512"></iframe>
 
-If you prefer, you can `view it fullscreen </dockertalk/>`_ (recommended), there is a `PDF Version </dockertalk/TheRevolutionWillBeContainerized.pdf>`_, or you can view the source `on github. <https://github.com/jbarratt/dockertalk>`_.
+If you prefer, you can `view it fullscreen </dockertalk/>`_ (recommended), there is a `PDF Version </dockertalk/TheRevolutionWillBeContainerized.pdf>`_, or you can view the source `on github <https://github.com/jbarratt/dockertalk>`_.
+Finally, if you have an hour and really enjoy the sound of my voice, you can
+watch the talk on YouTube:
+
+.. youtube:: LNAzzHS1Rho
