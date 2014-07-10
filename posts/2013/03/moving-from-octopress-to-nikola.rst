@@ -1,5 +1,5 @@
 .. title: Moving from Octopress to Nikola
-.. slug: moving-from-octropress-to-nikola
+.. slug: moving-from-octopress-to-nikola
 .. date: 2013/03/26 22:04:07
 .. tags: 
 .. link: 
@@ -8,7 +8,13 @@
 
 .. note::
 
-    *Updated* 2013/04/17 to reflect new nikola capabilities like
+    *Updated* 2014-06-09
+    If you are looking for the Octopress to Nikola migration script, 
+    `Mike McCracken <https://twitter.com/mikemccracken>`_ has 
+    improved it and moved it to it's 
+    `own repository <https://github.com/mikemccracken/nikola-octopress-import>`_.
+
+    *Updated* 2013-04-17 to reflect new nikola capabilities like
     PRETTY_URLS=True
 
 As I mention in the `About </about/>`_ page, I've moved blog engines quite a few
@@ -51,7 +57,7 @@ The biggest issues are that, with markdown:
 * Nikola, by default, likes posts to look like ``/posts/my-article-name.html``,
   whereas Octopress defaults to ``/2008/05/my-delightful-writing/``
 
-I `wrote a script <https://github.com/jbarratt/serialized-nikola/blob/master/util/import_octopress_posts.py>`_ which can be used to handle most of these changes automatically::
+I wrote a script (see note above to get Mike McCrackens improved version of it) which can be used to handle most of these changes automatically::
 
     $ ./import_octopress_posts.py ~/work/octopress/source/_posts ~/work/nikola/posts
 

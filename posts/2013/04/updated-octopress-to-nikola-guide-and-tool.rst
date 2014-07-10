@@ -5,6 +5,13 @@
 .. title: Updated Octopress to Nikola guide and tool
 .. slug: updated-octopress-to-nikola-guide-and-tool
 
+.. note::
+
+    If you are looking for the Octopress to Nikola migration script, 
+    `Mike McCracken <https://twitter.com/mikemccracken>`_ has 
+    improved it and moved it to it's 
+    `own repository <https://github.com/mikemccracken/nikola-octopress-import>`_.
+
 I updated `my guide </2013/03/moving-from-octopress-to-nikola>`_ to migrating from Octopress to Nikola to reflect a new
 feature I submitted to Nikola, which is available in the latest release.
 
