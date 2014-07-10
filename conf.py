@@ -224,6 +224,7 @@ GZIP_EXTENSIONS = ('.txt', '.htm', '.html', '.css', '.js', '.json')
 
 # Name of the theme to use. Themes are located in themes/theme_name
 THEME = 'serialized'
+#THEME = 'oldfashioned'
 
 # If you use 'site-reveal' theme you can select several subthemes
 # THEME_REVEAL_CONGIF_SUBTHEME = 'sky' # You can also use: beige/serif/simple/night/default
@@ -417,9 +418,13 @@ FILE_METADATA_REGEXP = None
 USE_BUNDLES = True
 
 # Plugins you don't want to use. Be careful :-)
-DISABLED_PLUGINS = ["render_archive"]
+#DISABLED_PLUGINS = ["render_archive"]
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 
 GLOBAL_CONTEXT = {}
+
+CREATE_SINGLE_ARCHIVE = True
+CREATE_MONTHLY_ARCHIVE = False
+COPY_SOURCES = False
