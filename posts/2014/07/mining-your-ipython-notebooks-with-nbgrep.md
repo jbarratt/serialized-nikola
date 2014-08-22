@@ -29,6 +29,8 @@ Great! Now I just need to find all the notebooks. Since I'm on OSX, I know that 
 $ mdfind -onlyin ~/work -name '.ipynb'
 ```
 
+**Update**: Thanks to [Thomas Spura](https://twitter.com/ThomasSpura) for the [fork](https://gist.github.com/tomspur/3e9d9190a8dea097a919), this now works on linux with `find` if you don't have mdfind; I updated [the original gist](https://gist.github.com/jbarratt/fa1d3473048e5f856aeb).
+
 Bolting those ideas together, and I have the very useful script [nbgrep](https://gist.github.com/jbarratt/fa1d3473048e5f856aeb). So if I want to find the notebook I was playing around with the Twitter API in, it's an `nbgrep twitter` away. (Bonus: in the terminal, you even get python syntax highlighting.)
 
 ```bash

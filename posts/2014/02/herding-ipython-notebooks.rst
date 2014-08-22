@@ -23,7 +23,9 @@ However, I hit the situation enough that I hopped into a directory of notebooks
 and wondered 'am I already running a notebook server here?' that I created
 a quick tool, that I share with you, dear reader.
 
-You can grab `nblist <https://github.com/jbarratt/dotfiles/blob/master/bin/nblist>`_ from my dotfiles repo, and drop it anywhere you'd like. Right now it's OSX only, as that's where I run Notebook.
+
+You can grab `nblist <https://gist.github.com/jbarratt/ae8026493fedc79f122b>`_
+from as a gist, and drop it in an executable directory.
 
 It allows you to do 
 
@@ -36,3 +38,12 @@ It allows you to do
 
 in a terminal. Bonus tip: ⌘--click on a URL in ``Terminal.app`` will open it in
 the default system browser.
+
+
+**Update 2014-08-22:**
+My original version of nblist was OSX only and depended on scraping through
+processes, looking at their environments, and checking which had open ports --
+which worked, but was janky. Thanks to some feedback from `Thomas Kluyver
+<https://twitter.com/takluyver>`_ on the mailing list, it's been improved so it
+will work on all POSIX systems using techniques that will be exposed in IPython
+3.x.
