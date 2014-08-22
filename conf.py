@@ -85,7 +85,7 @@ POSTS = (
     ("posts/*.html", "", "post.tmpl")
 )
 
-STORIES = (
+PAGES = (
     ("stories/*.txt", "", "story.tmpl"),
     ("stories/*.md", "", "story.tmpl"),
     ("stories/*.html", "", "story.tmpl")
@@ -164,7 +164,8 @@ ARCHIVE_FILENAME = "index.html"
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
 DEPLOY_COMMANDS = [
-    r'rsync -rav --delete output/ serialized.net@serialized.net:domains/serialized.net/html/'
+    r'rsync -rav --delete output/ serialized.net@serialized.net:domains/serialized.net/html/',
+    r'aws s3 sync output/ s3://serialized --delete'
 ]
 
 # Where the output site should be located

@@ -1,7 +1,7 @@
 <!---
 .. title: About
 .. date: 2011-09-26 22:02
-.. slug: index
+.. slug: about
 -->
 
 My name is Joshua Barratt. [serialized.net](http://serialized.net) is my personal blog. It's been slapped around and become many things many different times -- from Movable Type to Textpattern to a SweetCron lifestream to Habari to Chyrp to Wordpress and [Jekyll](http://github.com/mojombo/jekyll), then Jekyll/[Octopress framework](http://octopress.org), and currently [Nikola](http://nikola.ralsina.com.ar/). I might have a problem.
