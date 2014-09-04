@@ -29,7 +29,7 @@ release`.
 * The software is built
 * The build is shipped to the private PyPI Repo
 * The documentation is built and then shipped
-* Finally, the right channel in our `#slack <http://slack.io>`_ chat room is notified.
+* Finally, the right channel in our `#slack <http://slack.com>`_ chat room is notified.
 
 All that's left to do is push all the changes to `origin`. This is done manually
 in case anything went horribly wrong; it's easy to revert the changes to your
