@@ -64,3 +64,8 @@ All credit to slack, it was incredibly easy.
 Automating the release process has made it take seconds and, more importantly,
 work identically every time. It's well worth doing. (I just can't shake the
 feeling that there's a more generic way to do it.)
+
+**Update**: I was pointed to `zest.releaser
+<http://zestreleaser.readthedocs.org/en/latest/>`_ which has the same basic
+features, minus the slack integration. You can also use it with
+`gocept.zestreleaser.customupload <https://pypi.python.org/pypi/gocept.zestreleaser.customupload>`_ to enable the scp uploading we're doing here via fabric.
