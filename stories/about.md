@@ -4,7 +4,7 @@
 .. slug: about
 -->
 
-My name is Joshua Barratt. [serialized.net](http://serialized.net) is my personal blog. It's been slapped around and become many things many different times -- from Movable Type to Textpattern to a SweetCron lifestream to Habari to Chyrp to Wordpress and [Jekyll](http://github.com/mojombo/jekyll), then Jekyll/[Octopress framework](http://octopress.org), and currently [Nikola](http://nikola.ralsina.com.ar/). I might have a problem.
+My name is Joshua Barratt. [serialized.net](http://serialized.net) is my personal blog. It's been slapped around and become many things many different times -- from Movable Type to Textpattern to a SweetCron lifestream to Habari to Chyrp to Wordpress and [Jekyll](http://github.com/mojombo/jekyll), then Jekyll/[Octopress framework](http://octopress.org), and currently [Nikola](http://getnikola.com/). I might have a problem.
 
 The name serialized has a double meaning. For programmers, to 'serialize' something is to take something from a live, running program and store it on disk in a way that can be brought back to life later, possibly by a different program. I liked that aspect -- I'm dumping life thoughts and threads from my life onto disk, where some other reader will pick them up and bring them to life in their head. I also like the way the name (albeit with slightly different spelling) is a callback to [serial novels][1] like Sherlock Holmes.
 

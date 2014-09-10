@@ -19,7 +19,7 @@
 
 As I mention in the `About </about/>`_ page, I've moved blog engines quite a few
 times. Probably too many times. So I've learned from experience not to say that
-this time it's for good -- but so far, I'm loving `Nikola. <http://nikola.ralsina.com.ar/>`_
+this time it's for good -- but so far, I'm loving `Nikola. <http://getnikola.com/>`_
 
 Why leave Octopress?
 ====================

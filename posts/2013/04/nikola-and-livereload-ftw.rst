@@ -14,7 +14,7 @@ I've blogged about `using python-livereload </2013/01/live-sphinx-documentation-
 * given a tree of directories and files, watches them for changes, then takes some action when they happen
 * serves up another directory of content to a browser, and pushes a little websocket notification to it when the content's updated, so it can reload.
 
-This is perfect for `Nikola <http://nikola.ralsina.com.ar/>`_, the static blog
+This is perfect for `Nikola <http://getnikola.com/>`_, the static blog
 and site generator that I use for this very site.
 
 Normally, you
