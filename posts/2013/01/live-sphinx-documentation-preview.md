@@ -7,6 +7,12 @@
 .. description:
 -->
 
+**Update (_2015-06-11_)**: There is now a nice installable package to make this even easier, [sphinx-autobuild](https://github.com/GaretJax/sphinx-autobuild). All you have to do is
+
+```console
+$ pip install sphinx-autobuild
+$ sphinx-autobuild . _build/html
+```
 
 **Update** (_2013-04-23_): ``livereload`` now has a 'shell' compiler, which simplifies the ``Guardfile``. The post has been modified to reflect this.
 
