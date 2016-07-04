@@ -163,10 +163,11 @@ ARCHIVE_FILENAME = "index.html"
 # "rsync -rav output/* joe@my.site:/srv/www/site"
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
-DEPLOY_COMMANDS = [
+DEPLOY_COMMANDS = {'default': [
     r'rsync -rav --delete output/ serialized.net@serialized.net:domains/serialized.net/html/',
-    r'aws s3 sync output/ s3://serialized --delete'
-]
+    r'aws s3 sync output/ s3://serialized --delete']}
+
+WRITE_TAG_CLOUD=False
 
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
@@ -319,7 +320,7 @@ INDEX_DISPLAY_POST_COUNT = 2
 # RSS_LINK = None
 
 # Show only teasers in the RSS feed? Default to True
-RSS_TEASERS = False
+FEED_TEASERS = False
 
 # A search form to search this site, for the sidebar. You can use a google
 # custom search (http://www.google.com/cse/)
