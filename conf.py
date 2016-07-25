@@ -164,8 +164,9 @@ ARCHIVE_FILENAME = "index.html"
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
 DEPLOY_COMMANDS = {'default': [
-    r'rsync -rav --delete output/ serialized.net@serialized.net:domains/serialized.net/html/',
-    r'aws s3 sync output/ s3://serialized --delete']}
+    r'rsync -rav --delete output/ serialized.net@serialized.net:domains/serialized.net/html/']}
+
+#r'aws s3 sync output/ s3://serialized --delete']}
 
 WRITE_TAG_CLOUD=False
 
