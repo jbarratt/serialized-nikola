@@ -5,3 +5,4 @@ output
 build/
 Guardfile
 .ropeproject
+state_data.json
